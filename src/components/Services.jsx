@@ -13,20 +13,21 @@ class Services extends Component {
             {
                 icon: <FaHiking />,
                 title: "Endless Hikings",
-                info : "We provide free cocktails for customer " +
-                    "who rent the DELUX rooms for 2 nights."
+                info : "We have multiple routes (long and short)" +
+                    "for Hiking for any customer in our Hotel."
+
             },
             {
                 icon: <FaShuttleVan />,
                 title: "Free Shuttle",
-                info : "We provide free cocktails for customer " +
-                    "who rent the DELUX rooms for 2 nights."
+                info : "We provide shuttle van for customer " +
+                    "who wants to spend some time in Nature."
             },
             {
                 icon: <FaBeer />,
                 title: "Strongest Beer",
-                info : "We provide free cocktails for customer " +
-                    "who rent the DELUX rooms for 2 nights."
+                info : "We provide free and strongest beer in" +
+                    "the whole world."
             }
         ]
     }
