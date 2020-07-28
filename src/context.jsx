@@ -4,13 +4,23 @@ import items from "./data";
 const RoomContext = React.createContext();
 //<RoomContext.Provider value={'hello'} />;
 
-class RoomProvider extends Component {
+export default class RoomProvider extends Component {
   state = {
     rooms: [],
     sortedRooms: [],
     featuredRooms: [],
     loading: true,
+    type: "all",
+    capacity: 1,
+    price: 0,
+    minPrice: 0,
+    maxPrice: 0,
+    minSize: 0,
+    maxSize: 0,
+    breakfast: false,
+    pets: false
   };
+
   //GET DATA
   componentDidMount() {
     let rooms = this.formatData(items);
@@ -33,6 +43,12 @@ class RoomProvider extends Component {
     return tempItems;
   }
 
+  getRoom(slug) {
+    let tempRooms = [...this.state.rooms];
+    const room = tempRooms.find(room => room.slug === slug);
+    return room;
+  };
+
   render() {
     return (
       <RoomContext.Provider value={{ ...this.state }}>
@@ -43,5 +59,16 @@ class RoomProvider extends Component {
 }
 
 const RoomConsumer = RoomContext.Consumer;
+
+export function withRoomConsumer(Component) {
+  return function ConsumerWrapper(props){
+    return(
+        <RoomConsumer>
+          {value => <Component {...props} context={value}/>}
+        </RoomConsumer>
+    );
+  }
+
+}
 
 export { RoomProvider, RoomConsumer, RoomContext };
